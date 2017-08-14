@@ -1,0 +1,54 @@
+
+;; _total-score_                    	81 / 100
+
+;; ====== correctness
+
+;; === making textures ===
+;; vertical striped texture		8 / 8
+-2 - wrong coloring
+;; horizontal striped texture		2 / 8
+-6 - only one stripe shows (stripe that shows is correct)
+;; waves texture			8 / 8
+
+;; === texture mapping  ===
+;; poster texture mapping		5 / 8
+-3 - vertical map does not show
+;; sphere texture mapping		5 / 8
+-3 - vertical map does not show
+
+;; === lighting ===
+;; sphere is brighter on one side than the other 8 / 8
+;; sphere casts a shadow on the poster  8 / 8
+;; handles light position change 8 / 8
+;; poster casts shadow on large sphere 3 / 3
+;; lower ambient light darkens picture 3 / 3
+
+;; === correctness subtotal ===		56 / 70
+
+;; === style ===
+
+;; development process		     15 / 15
+
+;; adequate tests                     3 / 5
+-2 - no tests for logical_loc
+
+;; well-written purposes              0 / 2
+-2 - many missing purposes
+;; proper indentation, line breaks    1 / 2
+-1 - several counts of inconsistent or improper indentation
+;; well-named variables		      2 / 2
+
+;; === efficiency ===
+;; well-chosen control structures     4 / 4
+;; chose relatively small texture maps in horiz_stripes, vert_stripes 4 / 4
+
+;; _style_subtotal			25 / 30
+
+;; === partial credit ===
+;; They only earn points here for places where
+;;  they earned 0 for correctness tests
+
+;; partial_credit _subtotal_:	 	0
+
+;; graded by yuxiaozou
+
