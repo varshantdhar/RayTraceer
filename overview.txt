@@ -1,0 +1,22 @@
+Ray tracing is the primary rendering technique used in creating "realistic" computer graphics such as those used in animated films. For this project, you will build a simple ray tracing engine, to, first of all, tackle an interesting programming challenge and hone your skills, and second, begin to become familiar with the algorithms behind one of computation's most visible contributions to modern culture.
+
+Ray tracers build images by tracing rays, one at a time, from the camera location through the center of each pixel in the viewing plane into a scene. For projectA purposes, a scene is a collection of zero or more objects, either spheres or posters, a directional light source, and some other information (detailed below). The light source will not be used in project A. A sphere is characterized by it location, its size, and color information. A "poster" is a section of horizontal plane aligned with the x and y axes, and characterized by its (axis-aligned) x and y boundaries and color information.
+
+The purpose of a ray tracer is to determine what pixel to draw at a particular spot of the view plane. It needs four pieces of information.
+
+What object does it see?
+What color is the object in this location?
+Is the object in shadow or in light?
+How shiny is the object?
+This is a four-step process which you will perform over three assignments. The steps are performed in that order, and each later step depends on the result from the earlier step. In projectA, we will only complete the first two steps.
+To perform the first step, for each spot on the view plane, conceptually, the program follows a "ray" from the camera, through that spot of the view plane, and to the first object it hits. How does it know which one it hits first?
+
+A naive implementation would keep sampling points along that ray. Instead, there is a sequence of operations that can be used to determine whether, and where, an object hits a ray. Unfortunately, this doesn't work because as we get to the edge of the sphere, the sampling rate needs to get too high to be efficient. So, instead of sampling the ray everywhere it might hit an object, we check each object to see if it hits the ray. Don't worry - the steps to do so are described below.
+
+The ray tracer tests the ray for intersection with each of the objects in the scene and finds the one that is closest to the camera (if there is one). That is the object that will be viewed.
+
+The second step is to determine what color the object is in that location. Each object has either a static color or a picture/pattern that is mapped onto that object. Depending on the intersection point within the object, it consults a picture or function to determine the color. Once you are done with the second step, you are done with projectA.
+
+In projectB, you will complete this third step (along with another task). The intersection location must then be tested to see if it is in the shadow of any other object. Taking into account the color of the ambient light, the color of the object, and whether or not the point of intersection is shadowed by any other object, the system is able to compute the color of the pixel. And so it does, for each pixel in the view plane. How does it know if it is shaded? A second ray emanates from the intersection point with the object towards the light source. Because the light source is large, rather than a small lamp, this second ray always travels in the same direction to seek out the light source, regardless of where the intersection is in the scene. If it finds no intersections of objects between the object in the direction of the light source, then it is in the light. Otherwise, it is in shadow.
+
+Finally, the fourth step will integrate shine to modify your result from the shadow calculation.
